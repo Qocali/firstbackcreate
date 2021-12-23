@@ -1,39 +1,38 @@
-﻿<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+﻿@using initialback.ViewModels;
+@using System.Collections.Generic;
+@model HomeVM;
+@{
+    ViewData["Title"] = "Home Page";
+}
 
-    <link rel="icon" href="img/favicon.png" sizes="192x192">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="~/owlcarousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="~/owlcarousel/owl.theme.default.min.css">
-    <link rel="stylesheet" href="~/css/style.css">
-    <title>Fiorello – A Flower Shop and Florist WooCommerce Theme</title>
-</head>
+<!-- MAIN START -->
+
 <main>
 
     <!-- SLIDER START -->
 
     <section id="slider">
-        <div class="owl-carousel slider owl-loaded owl-drag">
+        <div class="owl-carousel slider">
 
+            @foreach (var item in Model.Sliderimage)
+            {
+                <div> <img src="~/img/@item.image" alt=""> </div>
+            }
 
-
-            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-2382px, 0px, 0px); transition: all 0.25s ease 0s; width: 5558px;"><div class="owl-item cloned" style="width: 794px;"><div> <img src="~/img/h3-slider-background-2.jpg" alt=""> </div></div><div class="owl-item cloned" style="width: 794px;"><div> <img src="~/img/h3-slider-background-3.jpg" alt=""> </div></div><div class="owl-item" style="width: 794px;"><div> <img src="~/img/h3-slider-background.jpg" alt=""> </div></div><div class="owl-item active" style="width: 794px;"><div> <img src="~/img/h3-slider-background-2.jpg" alt=""> </div></div><div class="owl-item" style="width: 794px;"><div> <img src="~/img/h3-slider-background-3.jpg" alt=""> </div></div><div class="owl-item cloned" style="width: 794px;"><div> <img src="~/img/h3-slider-background.jpg" alt=""> </div></div><div class="owl-item cloned" style="width: 794px;"><div> <img src="~/img/h3-slider-background-2.jpg" alt=""> </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots"><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button></div>
         </div>
-        <div class="container context pl-lg-5 ml-lg-3">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="text">
-                        <h1>Send <span>flowers</span> like</h1>
-                        <h1>you mean it</h1>
-                        <p class="text-black-50 d-none d-sm-block">
-                            Where flowers are our inspiration to create lasting memories. Whatever the occasion, our flowers will
-                            make it special cursus a sit amet mauris.
-                        </p>
-                    </div>
-                    <div class="~/img">
-                        <img src="~/img/h2-sign-~/img.png" alt="">
+        <div>
+            <div class="container context pl-lg-5 ml-lg-3">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="text">
+                           @Html.Raw(Model.Slider.title);
+                            <p class="text-black-50 d-none d-sm-block">
+                                @Model.Slider.subtitle;
+                            </p>
+                        </div>
+                        <div class="img">
+                            <img src="~/img/@Model.Slider.image" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -50,7 +49,7 @@
                     <ul class="category-mobile d-md-none list-unstyled">
                         <li>
                             <a href="" class="categories mr-2">Categories</a>
-                            <i class="fas fa-caret-down" aria-hidden="true"></i>
+                            <i class="fas fa-caret-down"></i>
                             <ul class="category list-unstyled" style="display: none;">
                                 <li><a href="" data-id="all">All</a></li>
                                 <li><a href="" data-id="popular">Popular</a></li>
@@ -74,7 +73,7 @@
                     <ul class="list-unstyled">
                         <li>
                             <a href="" class="mr-2">Filter</a>
-                            <i class="fas fa-caret-down" aria-hidden="true"></i>
+                            <i class="fas fa-caret-down"></i>
                         </li>
                     </ul>
                 </div>
@@ -82,9 +81,9 @@
             <div class="row">
                 <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
                     <div class="product-item text-center" data-id="popular">
-                        <div class="~/img">
+                        <div class="img">
                             <a href="">
-                                <img src="~/img/shop-14-~/img.jpg" class="~/img-fluid" alt="">
+                                <img src="~/img/shop-14-img.jpg" class="img-fluid" alt="">
                             </a>
                         </div>
                         <div class="title mt-3">
@@ -98,9 +97,9 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
                     <div class="product-item text-center" data-id="popular">
-                        <div class="~/img">
+                        <div class="img">
                             <a href="">
-                                <img src="~/img/shop-13-~/img.jpg" class="~/img-fluid" alt="">
+                                <img src="~/img/shop-13-img.jpg" class="img-fluid" alt="">
                             </a>
                         </div>
                         <div class="title mt-3">
@@ -114,9 +113,9 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
                     <div class="product-item text-center" data-id="winter">
-                        <div class="~/img">
+                        <div class="img">
                             <a href="">
-                                <img src="~/img/shop-12-~/img.jpg" class="~/img-fluid" alt="">
+                                <img src="~/img/shop-12-img.jpg" class="img-fluid" alt="">
                             </a>
                         </div>
                         <div class="title mt-3">
@@ -130,9 +129,9 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
                     <div class="product-item text-center" data-id="winter">
-                        <div class="~/img">
+                        <div class="img">
                             <a href="">
-                                <img src="~/img/shop-11-~/img.jpg" class="~/img-fluid" alt="">
+                                <img src="~/img/shop-11-img.jpg" class="img-fluid" alt="">
                             </a>
                         </div>
                         <div class="title mt-3">
@@ -146,9 +145,9 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
                     <div class="product-item text-center" data-id="various">
-                        <div class="~/img">
+                        <div class="img">
                             <a href="">
-                                <img src="~/img/shop-10-~/img.jpg" class="~/img-fluid" alt="">
+                                <img src="~/img/shop-10-img.jpg" class="img-fluid" alt="">
                             </a>
                         </div>
                         <div class="title mt-3">
@@ -162,9 +161,9 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
                     <div class="product-item text-center" data-id="various">
-                        <div class="~/img">
+                        <div class="img">
                             <a href="">
-                                <img src="~/img/shop-9-~/img.jpg" class="~/img-fluid" alt="">
+                                <img src="~/img/shop-9-img.jpg" class="img-fluid" alt="">
                             </a>
                         </div>
                         <div class="title mt-3">
@@ -178,9 +177,9 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
                     <div class="product-item text-center" data-id="exotic">
-                        <div class="~/img">
+                        <div class="img">
                             <a href="">
-                                <img src="~/img/shop-8-~/img.jpg" class="~/img-fluid" alt="">
+                                <img src="~/img/shop-8-img.jpg" class="img-fluid" alt="">
                             </a>
                         </div>
                         <div class="title mt-3">
@@ -194,9 +193,9 @@
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
                     <div class="product-item text-center" data-id="exotic">
-                        <div class="~/img">
+                        <div class="img">
                             <a href="">
-                                <img src="~/img/shop-7-~/img.jpg" class="~/img-fluid" alt="">
+                                <img src="~/img/shop-7-img.jpg" class="img-fluid" alt="">
                             </a>
                         </div>
                         <div class="title mt-3">
@@ -219,33 +218,28 @@
         <div class="container py-5">
             <div class="row py-5">
                 <div class="col-lg-6">
-                    <div class="~/img">
-                        <img src="~/img/h3-video-~/img.jpg" class="~/img-fluid" alt="">
+                    <div class="img">
+                        <img src="~/img/@Model.About.image" class="img-fluid" alt="">
                         <div class="player position-absolute rounded-circle d-flex align-items-center justify-content-center">
-                            <i class="fas fa-play fa-lg" aria-hidden="true"></i>
+                            <i class="fas fa-play fa-lg"></i>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="about-text mt-5 mt-lg-0 px-lg-5">
-                        <h1>Suprise Your <span>Valentine!</span> Let us arrange a smile.</h1>
+                        @Html.Raw(Model.About.title)
                         <p class="py-3">
-                            Where flowers are our inspiration to create lasting memories. Whatever the
-                            occasion...
+                           @Model.About.subtitle
                         </p>
                         <ul class="list-unstyled">
-                            <li class="mt-3">
-                                <img src="~/img/h1-custom-icon.png" class="mr-2" alt=""> Hand picked just
-                                for you.
-                            </li>
-                            <li class="mt-3">
-                                <img src="~/img/h1-custom-icon.png" class="mr-2" alt=""> Unique flower
-                                arrangements
-                            </li>
-                            <li class="mt-3">
-                                <img src="~/img/h1-custom-icon.png" class="mr-2" alt=""> Best way to say
-                                you care.
-                            </li>
+                            @foreach (Icon item in Model.Icon)
+                            {
+                                <li class="mt-3">
+                                    <img src="~/img/@item.image" class="mr-2" alt=""> @item.title
+                                </li>
+                            }
+
+
                         </ul>
                     </div>
                 </div>
@@ -271,50 +265,21 @@
                 </div>
             </div>
             <div class="row pb-5">
-                <div class="col-md-6 col-lg-3">
-                    <div class="item text-center">
-                        <div class="~/img">
-                            <img src="~/img/h3-team-~/img-1.png" class="~/img-fluid rounded-circle" alt="">
-                        </div>
-                        <div class="text mt-3">
-                            <h6>CRYSTAL BROOKS</h6>
-                            <p class="text-black-50">Florist</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="item text-center">
-                        <div class="~/img">
-                            <img src="~/img/h3-team-~/img-2.png" class="~/img-fluid rounded-circle" alt="">
-                        </div>
-                        <div class="text mt-3">
-                            <h6>SHIRLEY HARRIS</h6>
-                            <p class="text-black-50">Manager</p>
+
+                @foreach (Florish item in Model.Florishe)
+                {
+                    <div class="col-md-6 col-lg-3">
+                        <div class="item text-center">
+                            <div class="img">
+                                <img src="~/img/@item.image" class="img-fluid rounded-circle" alt="">
+                            </div>
+                            <div class="text mt-3">
+                                <h6>@item.title</h6>
+                                <p class="text-black-50">@item.subtitle</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="item text-center">
-                        <div class="~/img">
-                            <img src="~/img/h3-team-~/img-3.png" class="~/img-fluid rounded-circle" alt="">
-                        </div>
-                        <div class="text mt-3">
-                            <h6>BEVERLY CLARK</h6>
-                            <p class="text-black-50">Florist</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="item text-center">
-                        <div class="~/img">
-                            <img src="~/img/h3-team-~/img-4.png" class="~/img-fluid rounded-circle" alt="">
-                        </div>
-                        <div class="text mt-3">
-                            <h6>AMANDA WATKINS</h6>
-                            <p class="text-black-50">Florist</p>
-                        </div>
-                    </div>
-                </div>
+                }
                 <div class="col-lg-3"></div>
                 <div class="col-lg-3"></div>
                 <div class="col-lg-3"></div>
@@ -359,57 +324,26 @@
                 </div>
             </div>
             <div class="row pb-5">
-                <div class="col-md-6 col-lg-4">
-                    <div class="item">
-                        <div class="~/img position-relative">
-                            <img src="~/img/blog-feature-~/img-1.jpg" class="~/img-fluid" alt="">
-                            <div class="date rounded bg-light position-absolute py-1 px-2">
-                                <span>29.12.2019</span>
+                @foreach (FlorishType item in Model.FlorishType)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="item">
+                            <div class="img position-relative">
+                                <img src="~/img/@item.image" class="img-fluid" alt="">
+                                <div class="date rounded bg-light position-absolute py-1 px-2">
+                                    <span>@item.Date</span>
+                                </div>
+                            </div>
+                            <div class="text mt-3 text-center px-5">
+                                <h5>@item.title</h5>
+                                <p class="text-black-50">
+                                    @item.subtitle
+                                </p>
                             </div>
                         </div>
-                        <div class="text mt-3 text-center px-5">
-                            <h5>Flower Power</h5>
-                            <p class="text-black-50">
-                                Class aptent taciti sociosqu ad litora torquent per conubia
-                                nostra, per
-                            </p>
-                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="item">
-                        <div class="~/img position-relative">
-                            <img src="~/img/blog-feature-~/img-3.jpg" class="~/img-fluid" alt="">
-                            <div class="date rounded bg-light position-absolute py-1 px-2">
-                                <span>29.12.2019</span>
-                            </div>
-                        </div>
-                        <div class="text mt-3 text-center px-5">
-                            <h5>Local Florists</h5>
-                            <p class="text-black-50">
-                                Class aptent taciti sociosqu ad litora torquent per conubia
-                                nostra, per
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="item">
-                        <div class="~/img position-relative">
-                            <img src="~/img/blog-feature-~/img-4.jpg" class="~/img-fluid" alt="">
-                            <div class="date rounded bg-light position-absolute py-1 px-2">
-                                <span>29.12.2019</span>
-                            </div>
-                        </div>
-                        <div class="text mt-3 text-center px-5">
-                            <h5>Flower Beauty</h5>
-                            <p class="text-black-50">
-                                Class aptent taciti sociosqu ad litora torquent per conubia
-                                nostra, per
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                }
+
             </div>
         </div>
     </section>
@@ -421,122 +355,41 @@
         <div class="container">
             <div class="row py-5 justify-content-center">
                 <div class="col-md-8 col-xl-6">
-                    <div class="owl-carousel say owl-loaded owl-drag">
-
-
-                        <div class="owl-stage-outer">
-                            <div class="owl-stage" style="transform: translate3d(-1350px, 0px, 0px); transition: all 0.25s ease 0s; width: 2700px;">
-                                <div class="owl-item cloned" style="width: 450px;">
-                                    <div>
-                                        <div class="item text-center">
-                                            <div class="~/img d-flex justify-content-center">
-                                                <img src="~/img/testimonial-~/img-1.png" alt="">
-                                            </div>
-                                            <div class="text text-muted pt-3 pb-5">
-                                                <i>
-                                                    Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus
-                                                    lingua.
-                                                </i>
-                                            </div>
-                                            <div class="author">
-                                                <h6>Anna Barnes</h6>
-                                                <p class="text-black-50">Florist</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><div class="owl-item cloned" style="width: 450px;">
-                                    <div>
-                                        <div class="item text-center">
-                                            <div class="~/img d-flex justify-content-center">
-                                                <img src="~/img/testimonial-~/img-2.png" alt="">
-                                            </div>
-                                            <div class="text text-muted pt-3 pb-5">
-                                                <i>
-                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                                                    ligula eget.
-                                                </i>
-                                            </div>
-                                            <div class="author">
-                                                <h6>Jasmine White</h6>
-                                                <p class="text-black-50">Florist</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><div class="owl-item" style="width: 450px;">
-                                    <div>
-                                        <div class="item text-center">
-                                            <div class="~/img d-flex justify-content-center">
-                                                <img src="~/img/testimonial-~/img-1.png" alt="">
-                                            </div>
-                                            <div class="text text-muted pt-3 pb-5">
-                                                <i>
-                                                    Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus
-                                                    lingua.
-                                                </i>
-                                            </div>
-                                            <div class="author">
-                                                <h6>Anna Barnes</h6>
-                                                <p class="text-black-50">Florist</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><div class="owl-item active" style="width: 450px;">
-                                    <div>
-                                        <div class="item text-center">
-                                            <div class="~/img d-flex justify-content-center">
-                                                <img src="~/img/testimonial-~/img-2.png" alt="">
-                                            </div>
-                                            <div class="text text-muted pt-3 pb-5">
-                                                <i>
-                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                                                    ligula eget.
-                                                </i>
-                                            </div>
-                                            <div class="author">
-                                                <h6>Jasmine White</h6>
-                                                <p class="text-black-50">Florist</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><div class="owl-item cloned" style="width: 450px;">
-                                    <div>
-                                        <div class="item text-center">
-                                            <div class="~/img d-flex justify-content-center">
-                                                <img src="~/img/testimonial-~/img-1.png" alt="">
-                                            </div>
-                                            <div class="text text-muted pt-3 pb-5">
-                                                <i>
-                                                    Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus
-                                                    lingua.
-                                                </i>
-                                            </div>
-                                            <div class="author">
-                                                <h6>Anna Barnes</h6>
-                                                <p class="text-black-50">Florist</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><div class="owl-item cloned" style="width: 450px;">
-                                    <div>
-                                        <div class="item text-center">
-                                            <div class="~/img d-flex justify-content-center">
-                                                <img src="~/img/testimonial-~/img-2.png" alt="">
-                                            </div>
-                                            <div class="text text-muted pt-3 pb-5">
-                                                <i>
-                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                                                    ligula eget.
-                                                </i>
-                                            </div>
-                                            <div class="author">
-                                                <h6>Jasmine White</h6>
-                                                <p class="text-black-50">Florist</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                    <div class="owl-carousel say">
+                        <div>
+                            <div class="item text-center">
+                                <div class="img d-flex justify-content-center">
+                                    <img src="~/img/testimonial-img-1.png" alt="">
+                                </div>
+                                <div class="text text-muted pt-3 pb-5">
+                                    <i>
+                                        Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus
+                                        lingua.
+                                    </i>
+                                </div>
+                                <div class="author">
+                                    <h6>Anna Barnes</h6>
+                                    <p class="text-black-50">Florist</p>
                                 </div>
                             </div>
-                        </div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots"><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot active"><span></span></button></div>
+                        </div>
+                        <div>
+                            <div class="item text-center">
+                                <div class="img d-flex justify-content-center">
+                                    <img src="~/img/testimonial-img-2.png" alt="">
+                                </div>
+                                <div class="text text-muted pt-3 pb-5">
+                                    <i>
+                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+                                        ligula eget.
+                                    </i>
+                                </div>
+                                <div class="author">
+                                    <h6>Jasmine White</h6>
+                                    <p class="text-black-50">Florist</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -547,16 +400,15 @@
     <!-- INSTAGRAM START -->
 
     <section id="instagram">
-        <div class="owl-carousel instagram owl-loaded owl-drag">
-
-
-
-
-
-
-
-
-            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1058px, 0px, 0px); transition: all 0.25s ease 0s; width: 4235px;"><div class="owl-item cloned" style="width: 264.667px;"><div><img src="~/img/instagram5.jpg" class="~/img-fluid" alt=""></div></div><div class="owl-item cloned" style="width: 264.667px;"><div><img src="~/img/instagram6.jpg" class="~/img-fluid" alt=""></div></div><div class="owl-item cloned" style="width: 264.667px;"><div><img src="~/img/instagram7.jpg" class="~/img-fluid" alt=""></div></div><div class="owl-item cloned" style="width: 264.667px;"><div><img src="~/img/instagram8.jpg" class="~/img-fluid" alt=""></div></div><div class="owl-item active" style="width: 264.667px;"><div><img src="~/img/instagram1.jpg" class="~/img-fluid" alt=""></div></div><div class="owl-item active" style="width: 264.667px;"><div><img src="~/img/instagram2.jpg" class="~/img-fluid" alt=""></div></div><div class="owl-item active" style="width: 264.667px;"><div><img src="~/img/instagram3.jpg" class="~/img-fluid" alt=""></div></div><div class="owl-item" style="width: 264.667px;"><div><img src="~/img/instagram4.jpg" class="~/img-fluid" alt=""></div></div><div class="owl-item" style="width: 264.667px;"><div><img src="~/img/instagram5.jpg" class="~/img-fluid" alt=""></div></div><div class="owl-item" style="width: 264.667px;"><div><img src="~/img/instagram6.jpg" class="~/img-fluid" alt=""></div></div><div class="owl-item" style="width: 264.667px;"><div><img src="~/img/instagram7.jpg" class="~/img-fluid" alt=""></div></div><div class="owl-item" style="width: 264.667px;"><div><img src="~/img/instagram8.jpg" class="~/img-fluid" alt=""></div></div><div class="owl-item cloned" style="width: 264.667px;"><div><img src="~/img/instagram1.jpg" class="~/img-fluid" alt=""></div></div><div class="owl-item cloned" style="width: 264.667px;"><div><img src="~/img/instagram2.jpg" class="~/img-fluid" alt=""></div></div><div class="owl-item cloned" style="width: 264.667px;"><div><img src="~/img/instagram3.jpg" class="~/img-fluid" alt=""></div></div><div class="owl-item cloned" style="width: 264.667px;"><div><img src="~/img/instagram4.jpg" class="~/img-fluid" alt=""></div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots"><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button></div>
+        <div class="owl-carousel instagram">
+            <div><img src="~/img/instagram1.jpg" class="img-fluid" alt=""></div>
+            <div><img src="~/img/instagram2.jpg" class="img-fluid" alt=""></div>
+            <div><img src="~/img/instagram3.jpg" class="img-fluid" alt=""></div>
+            <div><img src="~/img/instagram4.jpg" class="img-fluid" alt=""></div>
+            <div><img src="~/img/instagram5.jpg" class="img-fluid" alt=""></div>
+            <div><img src="~/img/instagram6.jpg" class="img-fluid" alt=""></div>
+            <div><img src="~/img/instagram7.jpg" class="img-fluid" alt=""></div>
+            <div><img src="~/img/instagram8.jpg" class="img-fluid" alt=""></div>
         </div>
         <div class="hastag bg-light text-muted py-2 px-3">
             #FIORELLO
@@ -566,3 +418,5 @@
     <!-- INSTAGRAM END -->
 
 </main>
+
+<!-- MAIN END -->
